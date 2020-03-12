@@ -66,5 +66,23 @@ Le résultat attendu (au format json) est le suivant :
 # Avancement
 
 * [x] Initialisation du repo
+* [ ] Rédaction des 'specs'
 * [ ] Ecriture des tests
 * [ ] Implémentation du code
+
+# Rédaction des 'specs'
+
+- Calculer le nombre de POIs d'une zone
+    - Etre capable de lire un json passé en parametre
+    - Etre capable de faire la difference entre min et max passé en parametre
+    - Faire des filters sur les parametres
+- Trouver les N zones les plus denses
+    - Savoir **trier** les zones en fonction de leur densité
+    - Un point doit etre **comparable**
+- Lire un fichier TSV
+    - Avoir une classe abstraite FileInput, ce qui permettra par la suite d'avoir en entrée différent type de fichier
+    - A voir, si je permet deja de passer en parametre un delimiteur
+    - Le delimiteur sera dans la classe fille -_-
+- Lire la latitude et la longitude à partir d'un ID
+    - Etre capable de recupe un Point à partir d'un ID
+    - Un point a un ID, une latitude et une longitude
