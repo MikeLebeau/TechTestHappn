@@ -2,14 +2,25 @@ package com.happn.techtest;
 
 import com.happn.techtest.file.InputFile;
 import com.happn.techtest.file.TsvInputFile;
+import com.happn.techtest.point.PointOfInterest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class FileTypeTests {
 
-//    @Test
-//    void shouldReturnTsv(){
-//        InputFile inputFile = new TsvInputFile("example");
-//        Assertions.assertEquals("tsv", inputFile.getFileType());
-//    }
+    @Test
+    void shouldCreateAMapFromTSVFile(){
+        InputFile inputFile = new TsvInputFile("example");
+        Map map = inputFile.createMap();
+
+        Assertions.assertNotNull(map);
+    }
+
+    @Test
+    void verifyPointWithId1(){
+        InputFile inputFile = new TsvInputFile("example");
+        Map map = inputFile.createMap();
+
+        Assertions.assertEquals(new PointOfInterest("id1", -48.6f, -37.7f), map.getPoi("id1"));
+    }
 }

@@ -1,5 +1,6 @@
 package com.happn.techtest;
 
+import com.happn.techtest.point.Point;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

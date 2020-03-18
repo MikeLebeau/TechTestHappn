@@ -2,26 +2,41 @@ package com.happn.techtest;
 
 import com.happn.techtest.file.InputFile;
 import com.happn.techtest.file.TsvInputFile;
+import com.happn.techtest.point.Point;
+import com.happn.techtest.point.PointOfInterest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
 import java.util.List;
 
 public class MapTests {
 
     @Test
-    void shouldReturnAllPointsInZone(){
+    void shouldReturn2PointsInZone(){
         Map map = new Map(0, 10, 0, 10);
-        map.addPointOfInterest(new PointOfInterest(1, 1.0f, 1.0f));
-        map.addPointOfInterest(new PointOfInterest(2, 2.0f, 2.0f));
-        map.addPointOfInterest(new PointOfInterest(3, 6.0f, 8.0f));
+        map.addPointOfInterest(new PointOfInterest("1", 1.0f, 1.0f));
+        map.addPointOfInterest(new PointOfInterest("2", 2.0f, 2.0f));
+        map.addPointOfInterest(new PointOfInterest("3", 6.0f, 8.0f));
 
         Zone zone = new Zone(new Point(3, 3));
 
         List<PointOfInterest> poisList = map.getPois(zone);
 
         Assertions.assertEquals(2, poisList.size());
+    }
+
+    @Test
+    void shouldReturn3PointsInZone(){
+        Map map = new Map(0, 10, 0, 10);
+        map.addPointOfInterest(new PointOfInterest("1", 1.0f, 1.0f));
+        map.addPointOfInterest(new PointOfInterest("2", 2.0f, 2.0f));
+        map.addPointOfInterest(new PointOfInterest("3", 3.0f, 2.0f));
+
+        Zone zone = new Zone(new Point(3, 3));
+
+        List<PointOfInterest> poisList = map.getPois(zone);
+
+        Assertions.assertEquals(3, poisList.size());
     }
 
     /*

@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Point implements Comparable<Point> {
 
-    private float lat, lon;
+    private float lon, lat;
 
-    public Point(float lat, float lon) {
+    public Point(float lon, float lat) {
         this.lat = lat;
         this.lon = lon;
     }
@@ -30,15 +30,15 @@ public class Point implements Comparable<Point> {
     @Override
     public String toString() {
         return "Point{" +
-                "lat=" + lat +
-                ", lon=" + lon +
+                "lon=" + lon +
+                ", lat=" + lat +
                 '}';
     }
 
     @Override
     public int compareTo(Point otherPoint) {
-        int me = (int)(this.lat * 2 + this.lon);
-        int other = (int)(otherPoint.lat * 2 + otherPoint.lon);
+        int me = (int)(this.lon * 2 + this.lat);
+        int other = (int)(otherPoint.lon * 2 + otherPoint.lat);
         return me - other;
     }
 
@@ -47,12 +47,12 @@ public class Point implements Comparable<Point> {
         if (this == o) return true;
         if (!(o instanceof Point)) return false;
         Point point = (Point) o;
-        return Float.compare(point.lat, lat) == 0 &&
-                Float.compare(point.lon, lon) == 0;
+        return Float.compare(point.lon, lon) == 0 &&
+                Float.compare(point.lat, lat) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(lat, lon);
+        return Objects.hash(lon, lat);
     }
 }
