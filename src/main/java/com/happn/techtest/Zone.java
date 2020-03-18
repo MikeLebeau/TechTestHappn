@@ -1,5 +1,7 @@
 package com.happn.techtest;
 
+import com.happn.techtest.point.Point;
+
 import java.util.Arrays;
 
 public class Zone {
@@ -21,6 +23,7 @@ public class Zone {
     }
 
     public Zone(Point[] allPoints) {
+        Arrays.sort(allPoints);
         for (int i = 0; i < 4; i++) {
             this.allPoints[i] = allPoints[i];
         }
@@ -32,11 +35,6 @@ public class Zone {
 
     public void setAllPoints(Point[] allPoints) {
         this.allPoints = allPoints;
-    }
-
-    public Point[] getAllSortedPoints() {
-        Arrays.sort(allPoints);
-        return allPoints;
     }
 
     public Point getBottomLeft(){

@@ -1,14 +1,14 @@
-package com.happn.techtest;
+package com.happn.techtest.point;
 
 import java.util.Objects;
 
 public class Point implements Comparable<Point> {
 
-    private float lon, lat;
+    private float lat, lon;
 
-    public Point(float lon, float lat) {
-        this.lat = lat;
+    public Point(float lat, float lon) {
         this.lon = lon;
+        this.lat = lat;
     }
 
     public float getLat() {
@@ -30,16 +30,18 @@ public class Point implements Comparable<Point> {
     @Override
     public String toString() {
         return "Point{" +
-                "lon=" + lon +
-                ", lat=" + lat +
+                "lat=" + lat +
+                ", lon=" + lon +
                 '}';
     }
 
     @Override
     public int compareTo(Point otherPoint) {
-        int me = (int)(this.lon * 2 + this.lat);
-        int other = (int)(otherPoint.lon * 2 + otherPoint.lat);
-        return me - other;
+        if(this.lat == otherPoint.lat){
+            return Float.compare(this.lon, otherPoint.lon);
+        }
+
+        return Float.compare(this.lat, otherPoint.lat);
     }
 
     @Override
@@ -47,12 +49,12 @@ public class Point implements Comparable<Point> {
         if (this == o) return true;
         if (!(o instanceof Point)) return false;
         Point point = (Point) o;
-        return Float.compare(point.lon, lon) == 0 &&
-                Float.compare(point.lat, lat) == 0;
+        return Float.compare(point.lat, lat) == 0 &&
+                Float.compare(point.lon, lon) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(lon, lat);
+        return Objects.hash(lat, lon);
     }
 }

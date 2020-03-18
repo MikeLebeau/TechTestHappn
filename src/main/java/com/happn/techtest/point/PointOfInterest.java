@@ -1,14 +1,15 @@
-package com.happn.techtest;
+package com.happn.techtest.point;
 
 public class PointOfInterest extends Point {
-    int id;
 
-    public PointOfInterest(int id, float lon, float lat) {
+    private String id;
+
+    public PointOfInterest(String id, float lat, float lon) {
         super(lat, lon);
         this.id = id;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
