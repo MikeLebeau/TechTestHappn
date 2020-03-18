@@ -1,7 +1,5 @@
 # Test technique **HAPPN**
 
-- Commencé le 01/03/2020
-
 # Exercice
 À partir d'un fichier d'entrée fourni (fichier au format TSV contenant des points
 d'intérêts (POIs) caractérisés par: id, lat, lon), on veut calculer le nombre de
@@ -66,7 +64,7 @@ Le résultat attendu (au format json) est le suivant :
 # Avancement
 
 * [x] Initialisation du repo
-* [ ] Rédaction des 'specs'
+* [x] Rédaction des 'specs'
 * [ ] Ecriture des tests
 * [ ] Implémentation du code
 
