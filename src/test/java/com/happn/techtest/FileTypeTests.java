@@ -23,4 +23,13 @@ public class FileTypeTests {
 
         Assertions.assertEquals(new PointOfInterest("id1", -48.6f, -37.7f), map.getPoi("id1"));
     }
+
+    @Test
+    void shouldReturn2(){
+        InputFile inputFile = new TsvInputFile("example");
+        Map map = inputFile.createMap();
+        Zone zone = new Zone(6.5f, map.getMaxLat(), -7, map.getMaxLon());
+
+        Assertions.assertEquals(2, map.getPois(zone).size());
+    }
 }

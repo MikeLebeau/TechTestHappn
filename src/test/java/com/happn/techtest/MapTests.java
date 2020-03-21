@@ -39,23 +39,4 @@ public class MapTests {
         Assertions.assertEquals(3, poisList.size());
     }
 
-    /*
-    @Test
-    void shouldReturnOneLatitude(){
-        Map map = new TsvInputFile("example");
-        float lat = inputFile.getPoi("id1").getLat();
-
-        Assertions.assertEquals(-48.6, lat);
-    }
-    */
-    @Test
-    public void shouldReturn2(){
-        InputFile inputFile = new TsvInputFile("example");
-        //Zone zone = new Zone();
-
-        //float nbPoi = inputFile.getAllPois(zone);
-
-        Assertions.assertEquals(2, 2); //nbPoi);
-    }
-
 }
