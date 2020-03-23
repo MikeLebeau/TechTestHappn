@@ -7,23 +7,35 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Map {
-    private int minLat, maxLat;
-    private int minLon, maxLon;
+    private float minLat = -90;
+    private float maxLat = 90;
+    private float minLon = -180;
+    private float maxLon = 180;
 
     private List<Float> listLon, listLat;
 
     private List<PointOfInterest> pointOfInterestList;
 
-    public Map(int minLat, int maxLat, int minLon, int maxLon) {
+    public Map(){
+        initializeMap();
+    }
+
+    public Map(float minLat, float maxLat, float minLon, float maxLon) {
         this.minLat = minLat;
         this.maxLat = maxLat;
         this.minLon = minLon;
         this.maxLon = maxLon;
 
-        int rangeLat = (Math.abs(this.minLat) + Math.abs(this.maxLat)) * 2; // Car il y a un pas de 0.5
+        initializeMap();
+    }
+
+    private void initializeMap(){
+        // *2 Car il y a un pas de 0.5
+        // +1 Pour etre sur de tout englober
+        int rangeLat = (int)((Math.abs(this.minLat) + Math.abs(this.maxLat)) * 2) + 1;
         this.listLat = new ArrayList<>(rangeLat);
 
-        int rangeLon = (Math.abs(this.minLon) + Math.abs(this.maxLon)) * 2; // Car il y a un pas de 0.5
+        int rangeLon = (int)((Math.abs(this.minLon) + Math.abs(this.maxLon)) * 2) + 1;
         this.listLon = new ArrayList<>(rangeLon);
 
 
@@ -42,23 +54,23 @@ public class Map {
         this.pointOfInterestList = new ArrayList<>();
     }
 
-    public int getMinLon() {
+    public float getMinLon() {
         return minLon;
     }
 
-    public void setMinLon(int minLon) {
+    public void setMinLon(float minLon) {
         this.minLon = minLon;
     }
 
-    public int getMaxLon() {
+    public float getMaxLon() {
         return maxLon;
     }
 
-    public void setMaxLon(int maxLon) {
+    public void setMaxLon(float maxLon) {
         this.maxLon = maxLon;
     }
 
-    public int getMinLat() {
+    public float getMinLat() {
         return minLon;
     }
 
@@ -66,7 +78,7 @@ public class Map {
         this.minLon = minLat;
     }
 
-    public int getMaxLat() {
+    public float getMaxLat() {
         return maxLon;
     }
 
@@ -96,31 +108,6 @@ public class Map {
 
     public void setListLat(List<Float> listLat) {
         this.listLat = listLat;
-    }
-
-    public void drawMap(){
-        System.out.print(String.format("%4c|", '+'));
-        System.out.println("ListX size: " + this.listLon.size());
-        for(float x : this.listLon) { // Afficher les X
-            System.out.print(String.format("%5.1f|", x));
-        }
-
-        /*System.out.println("");
-
-        for(int j = 0; j < (Math.abs(minX)+Math.abs(maxX))*5; j += 0.5) { // Separator
-            System.out.print("-");
-        }
-
-        System.out.println("");
-
-        for(int i = maxY; i >= minY; i -= 0.5){
-            System.out.print(String.format("%4d|", i));
-
-            for(int j = maxX; j >= minX; j -= 0.5) {
-                System.out.print(String.format("%4d|", j));
-            }
-            System.out.println(""); // end of line
-        }*/
     }
 
     public List<PointOfInterest> getPois(Zone zone){

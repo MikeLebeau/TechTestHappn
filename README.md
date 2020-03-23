@@ -65,8 +65,10 @@ Le résultat attendu (au format json) est le suivant :
 
 * [x] Initialisation du repo
 * [x] Rédaction des 'specs'
-* [ ] Ecriture des tests
-* [ ] Implémentation du code
+* [x] Ecriture des tests
+* [x] Implémentation du code
+* [x] Vérification des tests
+* [ ] Refactor
 
 # Rédaction des 'specs'
 
