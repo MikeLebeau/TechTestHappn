@@ -19,22 +19,31 @@ public class Main {
 
         try {
             System.out.println("ARGS: " + Arrays.toString(args));
-            final CommandLine cmd = parser.parse(options, args);
+            final CommandLine cmd = parser.parse(options, args, true);
 
+            if(cmd.hasOption("help")){
+                HelpFormatter formatter = new HelpFormatter();
+                formatter.printHelp( "TechTestHappn", options );
+                System.exit(0);
+            }
 
+            StringBuilder result = new StringBuilder("{\n");
 
-            HelpFormatter formatter = new HelpFormatter();
-            formatter.printHelp( "lol", options );
+            if(cmd.hasOption("nbpoi")){
+                Zone zone = Zone.fromJson(cmd.getOptionValue("nbpoi"));
 
+                InputFile inputFile = new TsvInputFile("example");
 
-            Zone zone = Zone.fromJson(cmd.getOptionValue("nbpoi"));
+                Map map = inputFile.createMap();
 
-            System.out.println("L'option zone: " + zone);
+                result.append("\t\"value\": ");
+                result.append(map.getPois(zone).size());
+                result.append("\n");
+            }
 
-            InputFile inputFile = new TsvInputFile("example");
-            Map map = inputFile.createMap();
+            result.append("}\n");
 
-            System.out.println("getPois: " + map.getPois(zone).size());
+            System.out.println(result.toString());
         } catch (ParseException | JsonProcessingException e) {
             e.printStackTrace();
         }
