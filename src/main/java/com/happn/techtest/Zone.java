@@ -2,13 +2,23 @@ package com.happn.techtest;
 
 import com.happn.techtest.point.Point;
 
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Zone {
+public class Zone implements Serializable {
 
     private Point[] allPoints = new Point[4];
 
-    public Zone(Point bottomLeft, Point topLeft, Point topRight, Point bottomRight){
+    public Zone (float minLat, float maxLat, float minLon, float maxLon){
+        this.allPoints[0] = new Point(minLat, minLon);
+        this.allPoints[1] = new Point(minLat, maxLon);
+        this.allPoints[2] = new Point(maxLat, minLon);
+        this.allPoints[3] = new Point(maxLat, maxLon);
+    }
+
+    public Zone(Point bottomLeft, Point bottomRight, Point topLeft, Point topRight){
         this.allPoints[0] = bottomLeft;
         this.allPoints[1] = bottomRight;
         this.allPoints[2] = topLeft;
@@ -51,5 +61,13 @@ public class Zone {
 
     public Point getTopRight(){
         return allPoints[3];
+    }
+
+    private void readObject(ObjectInputStream in){
+
+    }
+
+    private void writeObject(ObjectOutputStream out){
+
     }
 }

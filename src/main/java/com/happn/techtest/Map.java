@@ -98,31 +98,6 @@ public class Map {
         this.listLat = listLat;
     }
 
-    public void drawMap(){
-        System.out.print(String.format("%4c|", '+'));
-        System.out.println("ListX size: " + this.listLon.size());
-        for(float x : this.listLon) { // Afficher les X
-            System.out.print(String.format("%5.1f|", x));
-        }
-
-        /*System.out.println("");
-
-        for(int j = 0; j < (Math.abs(minX)+Math.abs(maxX))*5; j += 0.5) { // Separator
-            System.out.print("-");
-        }
-
-        System.out.println("");
-
-        for(int i = maxY; i >= minY; i -= 0.5){
-            System.out.print(String.format("%4d|", i));
-
-            for(int j = maxX; j >= minX; j -= 0.5) {
-                System.out.print(String.format("%4d|", j));
-            }
-            System.out.println(""); // end of line
-        }*/
-    }
-
     public List<PointOfInterest> getPois(Zone zone){
         return this.pointOfInterestList.stream()
                 .filter((pointOfInterest ->
