@@ -18,10 +18,9 @@ public class Main {
         final CommandLineParser parser = new DefaultParser();
 
         try {
-            System.out.println("ARGS: " + Arrays.toString(args));
             final CommandLine cmd = parser.parse(options, args, true);
 
-            if(cmd.hasOption("help")){
+            if(cmd.hasOption("help") || args.length == 0){
                 HelpFormatter formatter = new HelpFormatter();
                 formatter.printHelp( "TechTestHappn", options );
                 System.exit(0);

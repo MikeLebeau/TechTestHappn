@@ -80,7 +80,7 @@ Le résultat attendu (au format json) est le suivant :
     - Savoir **trier** les zones en fonction de leur densité
     - Un point doit etre **comparable**
 - Lire un fichier TSV
-    - Avoir une classe abstraite FileInput, ce qui permettra par la suite d'avoir en entrée différent type de fichier
+    - Avoir une classe abstraite FileInput, ce qui permettra par la suite d'avoir en entré différent type de fichier
     - A voir, si je permet deja de passer en parametre un delimiteur
     - Le delimiteur sera dans la classe fille -_-
 - Lire la latitude et la longitude à partir d'un ID
