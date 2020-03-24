@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Map {
-    private float minLat = -90;
-    private float maxLat = 90;
-    private float minLon = -180;
-    private float maxLon = 180;
+    private float minLat = Config.LAT_MIN.getValue();
+    private float maxLat = Config.LAT_MAX.getValue();
+    private float minLon = Config.LON_MIN.getValue();
+    private float maxLon = Config.LON_MAX.getValue();
 
     private List<Float> listLon, listLat;
 
@@ -30,8 +30,8 @@ public class Map {
     }
 
     private void initializeMap(){
-        // *2 Car il y a un pas de 0.5
-        // +1 Pour etre sur de tout englober
+        // *2 because of the 0.5 step
+        // +1 to be sure to have all
         int rangeLat = (int)((Math.abs(this.minLat) + Math.abs(this.maxLat)) * 2) + 1;
         this.listLat = new ArrayList<>(rangeLat);
 
@@ -126,4 +126,21 @@ public class Map {
                 .findFirst().get();
     }
 
+
+    enum Config {
+        LAT_MIN(-90),
+        LAT_MAX(90),
+        LON_MIN(-180),
+        LON_MAX(180);
+
+        private float value;
+
+        Config(float name){
+            this.value = name;
+        }
+
+        public float getValue(){
+            return value;
+        }
+    }
 }

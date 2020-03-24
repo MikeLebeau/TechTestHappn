@@ -119,32 +119,25 @@ public class Zone {
                 '}';
     }
 
-    public String toJson() throws JsonProcessingException {
-        ObjectMapper om = new ObjectMapper();
-        return om.writeValueAsString(this);
-    }
-
-
     public static Zone fromJson(String json) throws JsonProcessingException {
         ObjectMapper om = new ObjectMapper();
         return om.readValue(json, Zone.class);
     }
 
-
     @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "set")
     public static class Builder{
 
         @JsonProperty("min_lat")
-        float minLat = -90;
+        float minLat = Map.Config.LAT_MIN.getValue();
 
         @JsonProperty("max_lat")
-        float maxLat = 90;
+        float maxLat = Map.Config.LAT_MAX.getValue();
 
         @JsonProperty("min_lon")
-        float minLon = -180;
+        float minLon = Map.Config.LON_MIN.getValue();
 
         @JsonProperty("max_lon")
-        float maxLon = 180;
+        float maxLon = Map.Config.LON_MAX.getValue();
 
         public void setMinLat(float minLat) {
             this.minLat = minLat;

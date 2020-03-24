@@ -7,7 +7,6 @@ import com.happn.techtest.file.TsvInputFile;
 import org.apache.commons.cli.*;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class Main {
     public static void main(String[] args) {
@@ -38,6 +37,10 @@ public class Main {
                 result.append("\t\"value\": ");
                 result.append(map.getPois(zone).size());
                 result.append("\n");
+            }
+
+            if(cmd.hasOption("densest")){
+                result.append("densest option: Not implemented yet!");
             }
 
             result.append("}\n");

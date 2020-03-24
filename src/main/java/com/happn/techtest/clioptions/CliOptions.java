@@ -17,7 +17,7 @@ public class CliOptions {
 
         final Option densestOption = Option.builder()
                 .longOpt("densest")
-                .desc("Return the n densest zones")
+                .desc("(Not implemented yet) Return the n densest zones")
                 .hasArg(true)
                 .argName("nbZone")
                 .build();
