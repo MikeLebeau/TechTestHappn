@@ -86,3 +86,10 @@ Le résultat attendu (au format json) est le suivant :
 - Lire la latitude et la longitude à partir d'un ID
     - Etre capable de recupe un Point à partir d'un ID
     - Un point a un ID, une latitude et une longitude
+    
+# Divers
+
+> Test coverage: Class 60%, Method 51%, Line 50%
+
+> Pour la premiere question:  
+> mvn compile && mvn exec:java -Dexec.mainClass="com.happn.techtest.Main" -Dexec.args="--nbpoi '{\"min_lat\": 6.5, \"min_lon\": -7}'"
