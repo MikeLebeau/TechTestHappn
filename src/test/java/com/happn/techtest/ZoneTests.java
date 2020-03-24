@@ -35,24 +35,50 @@ public class ZoneTests {
     }
 
     @Test
+    @DisplayName("Check if I get the lowest point, the bottom left point")
     void shouldReturnBottomLeftPoint(){
         Assertions.assertEquals(new Point(0, 0), zone.getBottomLeft());
     }
 
     @Test
+    @DisplayName("Check if I get the bottom right point")
     void shouldReturnBottomRightPoint(){
         Assertions.assertEquals(new Point(0, 1), zone.getBottomRight());
     }
 
     @Test
+    @DisplayName("Check if I get the top left point")
     void shouldReturnTopLeftPoint(){
         Assertions.assertEquals(new Point(1, 0), zone.getTopLeft());
     }
 
     @Test
+    @DisplayName("Check if I get the top right point")
     void shouldReturnTopRightPoint(){
         Assertions.assertEquals(new Point(1, 1), zone.getTopRight());
     }
 
+    @Test
+    @DisplayName("Check if I get the min lat")
+    void shouldReturnMinLatEqual0(){
+        Assertions.assertEquals(0, zone.getMinLat());
+    }
 
+    @Test
+    @DisplayName("Check if I get the min lon")
+    void shouldReturnMinLonEqual0(){
+        Assertions.assertEquals(0, zone.getMinLon());
+    }
+
+    @Test
+    @DisplayName("Check if I get the max lat")
+    void shouldReturnMaxLatEqual1(){
+        Assertions.assertEquals(1, zone.getMaxLat());
+    }
+
+    @Test
+    @DisplayName("Check if I get the max lon")
+    void shouldReturnMaxLonEqual1(){
+        Assertions.assertEquals(1, zone.getMaxLon());
+    }
 }

@@ -28,7 +28,7 @@ public class PointTests {
     }
 
     @Test
-    @DisplayName("Array sorting")
+    @DisplayName("Check if I make a correct array sorting")
     void shouldReturnSortedArray(){
         Point[] arr = new Point[4];
         arr[0] = new Point(1, 1);

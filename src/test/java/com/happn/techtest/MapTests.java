@@ -1,10 +1,9 @@
 package com.happn.techtest;
 
-import com.happn.techtest.file.InputFile;
-import com.happn.techtest.file.TsvInputFile;
 import com.happn.techtest.point.Point;
 import com.happn.techtest.point.PointOfInterest;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -12,6 +11,7 @@ import java.util.List;
 public class MapTests {
 
     @Test
+    @DisplayName("Check if I get the correct number of poi in a zone (2pois)")
     void shouldReturn2PointsInZone(){
         Map map = new Map(0, 10, 0, 10);
         map.addPointOfInterest(new PointOfInterest("1", 1.0f, 1.0f));
@@ -26,6 +26,7 @@ public class MapTests {
     }
 
     @Test
+    @DisplayName("Check if I get the correct number of poi in a zone (3pois)")
     void shouldReturn3PointsInZone(){
         Map map = new Map(0, 10, 0, 10);
         map.addPointOfInterest(new PointOfInterest("1", 1.0f, 1.0f));
